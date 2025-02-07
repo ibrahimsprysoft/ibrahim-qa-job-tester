@@ -35,7 +35,7 @@ class QAJobsPage(BasePage):
 
     def verify_job_listings(self):
         self.wait_for_page_load()
-        time.sleep(1)  # Kısa bekleme
+        time.sleep(1)
 
         jobs = self.driver.find_elements(*self.JOBS_LIST)
         if not jobs:
@@ -91,18 +91,14 @@ class QAJobsPage(BasePage):
             if not href:
                 print("View Role butonunda href bulunamadı!")
                 return
-                
-            # Ana pencereyi sakla
+            
             self.store_main_window()
             
-            # Butona tıkla (yeni sekme açılacak)
             view_role.click()
             
-            # Yeni sekmeye geç
             self.switch_to_new_window()
             print("Yeni sekmeye geçildi!")
             
         except Exception as error:
             print(f"View Role tıklanırken hata oluştu: {error}")
-            # Hata durumunda ana pencereye dön
             self.switch_to_main_window()
