@@ -1,45 +1,80 @@
-# Insider QA Test Otomasyon Projesi
+# Insider QA İş İlanları Test Otomasyonu
 
-Bu proje, Insider web sitesinin kariyer sayfasındaki QA pozisyonlarını test eden bir otomasyon projesidir.
+Bu proje, Insider kariyer sayfasındaki QA pozisyonlarını test eden bir otomasyon projesidir. Selenium WebDriver ve Python kullanılarak geliştirilmiştir.
 
-## Gereksinimler
+## 🚀 Test Senaryosu
 
-- Python 3.8+
-- Chrome tarayıcı
+1. Ana sayfa açılır ve kontrol edilir (www.useinsider.com)
+2. Careers sayfasına gidilir
+   - Kariyer sayfasındaki tüm bölümlerin görüntülendiği kontrol edilir
+   - Konum, ekip ve yaşam alanlarının görüntülendiği kontrol edilir
+3. QA pozisyonları için filtreleme yapılır
+   - Tüm QA pozisyonları görüntülenir
+   - İstanbul, Türkiye lokasyonu seçilir
+   - Quality Assurance departmanı seçilir
+4. İş ilanları kontrol edilir
+   - Pozisyon başlığında "QA", "Quality Assurance" veya "Test" içerdiği kontrol edilir
+   - Departmanın "Quality Assurance" olduğu kontrol edilir
+   - Lokasyonun "Istanbul, Turkey" olduğu kontrol edilir
+   - "View Role" butonunun görünür ve aktif olduğu kontrol edilir
+5. İlk pozisyonun detayları kontrol edilir
+   - "View Role" butonuna tıklanır
+   - Lever başvuru formunun açıldığı kontrol edilir
 
-## Kurulum
+## 🛠️ Kurulum
 
-1. Projeyi klonlayın:
+1. Python 3.11 veya üzeri sürümü yükleyin
+2. Projeyi klonlayın:
 ```bash
-git clone [repo-url]
+git clone https://github.com/ibrahimsprysoft/ibrahim-qa-job-tester.git
+cd ibrahim-qa-job-tester
 ```
 
-2. Gerekli paketleri yükleyin:
+3. Sanal ortam oluşturun ve aktif edin:
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac için
+# veya
+venv\Scripts\activate  # Windows için
+```
+
+4. Gerekli paketleri yükleyin:
 ```bash
 pip install -r requirements.txt
 ```
 
-## Testleri Çalıştırma
+## 🏃‍♂️ Testleri Çalıştırma
 
-Testleri çalıştırmak için:
+Tüm testleri çalıştırmak için:
 ```bash
-pytest tests/test_insider_careers.py -v
+python -m pytest tests/test_insider_careers.py -v
 ```
 
-## Proje Yapısı
 
-- `pages/`: Page Object Model sınıfları
-  - `base_page.py`: Temel sayfa sınıfı
-  - `home_page.py`: Ana sayfa
-  - `careers_page.py`: Kariyer sayfası
-  - `qa_jobs_page.py`: QA pozisyonları sayfası
-- `tests/`: Test dosyaları
-  - `test_insider_careers.py`: Test senaryoları
+## 📁 Proje Yapısı
 
-## Test Senaryoları
+```
+├── pages/                  # Page Object Model sınıfları
+│   ├── base_page.py       # Temel sayfa sınıfı
+│   ├── home_page.py       # Ana sayfa
+│   ├── careers_page.py    # Kariyer sayfası
+│   └── qa_jobs_page.py    # QA pozisyonları sayfası
+├── tests/                 # Test dosyaları
+│   └── test_insider_careers.py
+├── requirements.txt       # Proje bağımlılıkları
+└── README.md
+```
 
-1. Ana sayfa kontrolü
-2. Careers sayfası ve bölümlerinin kontrolü
-3. QA pozisyonlarının filtrelenmesi
-4. İş ilanlarının içerik kontrolü
-5. Başvuru formuna yönlendirme kontrolü 
+## 🔧 Kullanılan Teknolojiler
+
+- Python 3.11
+- Selenium WebDriver
+- Pytest
+- Chrome WebDriver
+
+## 📝 Notlar
+
+- Test çalıştırmadan önce Chrome tarayıcısının yüklü olduğundan emin olun
+- İnternet bağlantınızın stabil olduğundan emin olun
+- Testler sırasında tarayıcı penceresini kapatmayın
+- Testler yaklaşık 1-2 dakika sürebilir
